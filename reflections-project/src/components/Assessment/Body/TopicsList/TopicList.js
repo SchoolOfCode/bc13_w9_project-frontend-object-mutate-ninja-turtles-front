@@ -1,13 +1,18 @@
 import React from "react";
-import Slider from "../../Slider/Slider";
 import TopicItem from "./TopicItem/TopicItem";
 
-function TopicList({ toDos, changeSlider }) {
+function TopicList({ topics, changeSlider, sliderValue, setSliderValue }) {
   return (
     <div>
       <ul>
-        {toDos.map((todo, i) => (
-          <TopicItem key={i} text={todo} changeSlider={() => changeSlider(i)} />
+        {topics.map((topic, i) => (
+          <TopicItem
+            key={i}
+            text={topic.text}
+            sliderValue={topic.value}
+            setSliderValue={(value) => setSliderValue(topic.text, value)}
+            changeSlider={() => changeSlider(i)}
+          />
         ))}
       </ul>
     </div>
