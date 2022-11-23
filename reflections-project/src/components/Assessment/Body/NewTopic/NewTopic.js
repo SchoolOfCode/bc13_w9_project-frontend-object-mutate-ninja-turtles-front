@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import DropDown from "../../DropDown/DropDown";
 
-function NewTopic(addFunction) {
+function NewTopic({ onData }) {
+  const [optionState, setOptionState] = useState("");
+
+  // function Input({ onData }) {
+  //   const [text, setText] = useState("");
+
+  function monitorState(e) {
+    e.preventDefault();
+    onData(optionState);
+    setOptionState("");
+  }
+
   const options = [
     { value: "sql", label: "SQL" },
     { value: "postman", label: "Postman" },
     { value: "react", label: "React" },
   ];
   return (
-    <div>
+    <form onSubmit={monitorState}>
       <h3>Start of new topic area</h3>
-      <DropDown placeHolder="Select..." options={options} />
-      <button></button>
-    </div>
+      <input
+        placeHolder="Select..."
+        // options={options}
+        onChange={(e) => setOptionState(e.target.value)}
+      />
+      <button>Add</button>
+    </form>
   );
 }
 

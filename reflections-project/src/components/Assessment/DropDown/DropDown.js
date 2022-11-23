@@ -9,7 +9,7 @@ const Icon = () => {
   );
 };
 
-const DropDown = ({ placeHolder, options }) => {
+function DropDown({ placeHolder, options }) {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedValue, setSelectedValue] = useState(null);
 
@@ -54,7 +54,11 @@ const DropDown = ({ placeHolder, options }) => {
       {showMenu && (
         <div className="dropdown-menu">
           {options.map((option) => (
-              <div onClick={() => onItemClick(option)} key={option.value} className={`dropdown-item ${isSelected(option) && "selected"}`}>
+            <div
+              onClick={() => onItemClick(option)}
+              key={option.value}
+              className={`dropdown-item ${isSelected(option) && "selected"}`}
+            >
               {option.label}
             </div>
           ))}
@@ -62,6 +66,6 @@ const DropDown = ({ placeHolder, options }) => {
       )}
     </div>
   );
-};
+}
 
 export default DropDown;
