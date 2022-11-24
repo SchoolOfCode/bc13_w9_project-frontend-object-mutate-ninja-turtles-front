@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-async function displayReviews() {
-  const response = await fetch('http://localhost:3001/api/bootcampers');
-  let data = await response.json();
-  console.log(`Data ${JSON.stringify(data)}`);
-  return data;
-}
+function Scoreboard() {
+  const [data, setData] = useState('');
+  const [hello, setHello] = useState('');
+  useEffect(() => {
+    setHello(data);
+    console.log(`hello ${hello}`);
+  }, [data]);
 
-function Scoreboard(data) {
+  async function displayReviews() {
+    const responseJSON = await fetch('http://localhost:3001/api/bootcampers');
+    let response = await responseJSON.json();
+    console.log(`Data ${JSON.stringify(response.payload[0])}`);
+    setData(JSON.stringify(response.payload));
+    //return dataStr;
+  }
+
   return (
     <div>
       Scoreboard
@@ -18,7 +26,7 @@ function Scoreboard(data) {
       >
         Display
       </button>
-      <p>put data here</p>
+      <p>hi{hello}</p>
     </div>
   );
 }
