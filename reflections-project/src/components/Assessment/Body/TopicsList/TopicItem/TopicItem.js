@@ -6,7 +6,10 @@ function TopicItem({ text, sliderValue, setSliderValue }) {
   return (
     <div className="slidecontainer">
       <li id="topicNames">
-        {text}
+        <div class="topicStats">
+          {text} <span class="sliderValue">{sliderValue}</span>
+        </div>
+
         <input
           onChange={(e) =>
             console.log(e.target.value) || setSliderValue(e.target.value)
@@ -19,7 +22,6 @@ function TopicItem({ text, sliderValue, setSliderValue }) {
         />
         {/* <p id="rangeValue">10</p> */}
         {/* <input type="range" min="1" max="10" onClick={Slider}></input> */}
-        {sliderValue}
       </li>
     </div>
   );
