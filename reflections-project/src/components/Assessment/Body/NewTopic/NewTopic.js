@@ -13,20 +13,17 @@ function NewTopic({ onData }) {
     setOptionState("");
   }
 
-  const options = [
-    { value: "sql", label: "SQL" },
-    { value: "postman", label: "Postman" },
-    { value: "react", label: "React" },
-  ];
   return (
     <form onSubmit={monitorState}>
-      <h3>Start of new topic area</h3>
-      <input
-        placeHolder="Select..."
-        // options={options}
-        onChange={(e) => setOptionState(e.target.value)}
-      />
-      <button>Add</button>
+      <div>
+        <h3>Start of new topic area</h3>
+        <input
+          placeholder="Enter your topic..."
+          // options={options}
+          onChange={(e) => setOptionState(e.target.value)}
+        />
+        <button>Add</button>
+      </div>
     </form>
   );
 }

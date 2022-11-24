@@ -1,35 +1,25 @@
 import React from "react";
 import { useState } from "react";
-import Slider from "../../../Slider/Slider";
 import "./TopicItem.css";
 
-function TopicItem({ changeSlider }) {
-  const [text, setText] = useState(""); //change the text value here to different name and re add text as parameter in line 6
-
-  // function handleChange(e) {
-  //   e.preventDefault();
-  //   changeSlider(text);
-  //   setText("");
-  // }
-
+function TopicItem({ text, changeSlider, sliderValue, setSliderValue }) {
   return (
-    <div class="slidecontainer">
-      <li>
+    <div className="slidecontainer">
+      <li id="topicNames">
         {text}
         <input
           onChange={(e) =>
-            console.log(e.target.value) || setText(e.target.value)
+            console.log(e.target.value) || setSliderValue(e.target.value)
           }
           type="range"
           min="1"
           max="10"
-          oninput="rangeValue.innerText=this.value"
           className="slider"
           id="myRange"
-          // onChange={changeSlider}
         />
         {/* <p id="rangeValue">10</p> */}
         {/* <input type="range" min="1" max="10" onClick={Slider}></input> */}
+        {sliderValue}
       </li>
     </div>
   );
