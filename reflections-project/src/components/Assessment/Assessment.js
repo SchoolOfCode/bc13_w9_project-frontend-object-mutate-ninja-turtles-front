@@ -56,16 +56,16 @@ function Assessment() {
   //     },
   //   );
 
-
-  const submitUserScores = async () => {
-    setTopics({ topic_id: 1, score: topics.score, date_added: "2022-11-25", bootcamper_id: 1, });
+  async function submitUserScores(topics) {
+  //const submitUserScores(topics) = async () => {
+   // setTopics({ topic_id: 1, score: topics.score, date_added: "2022-11-25", bootcamper_id: 1, });
     const post = await fetch('http://localhost:3001/api/reviews', 
     {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(topics),
+      body: JSON.stringify({ topic_id: 1, score: topics[0].score, date_added: "2022-11-25", bootcamper_id: 1, }),
     }
     );
     const response = await post.json();
@@ -88,7 +88,7 @@ function Assessment() {
         <button
           className="submitAllButton"
           onClick={(e) => {
-            submitUserScores(e);
+            submitUserScores(topics);
           }}
         >
           Submit All
