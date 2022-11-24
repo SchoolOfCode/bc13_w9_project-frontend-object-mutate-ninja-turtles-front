@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./TopicItem.css";
 
-function TopicItem({ text, changeSlider, sliderValue, setSliderValue }) {
+function TopicItem({ text, sliderValue, setSliderValue }) {
   return (
     <div className="slidecontainer">
       <li id="topicNames">
