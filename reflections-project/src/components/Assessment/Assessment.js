@@ -8,6 +8,9 @@ import sampleTopics from "../../libs/data.js";
 import Slider from "./Slider/Slider";
 
 function Assessment() {
+
+
+  
   const [topics, setTopics] = useState([
     {
       text: "HTML",
@@ -58,6 +61,19 @@ function Assessment() {
   //       body: JSON.stringify(topics) //Name of the object holding details
   //     },
   //   );
+
+
+  const fetchData = async () => {
+    const responseJSON = await fetch('http://localhost:3001/api/reviews', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+    let response = await responseJSON.json();
+    console.log('Data', response);
+    setData(response.payload);
+  };
 
   return (
     <div>
