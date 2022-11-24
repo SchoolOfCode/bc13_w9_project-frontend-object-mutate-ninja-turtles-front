@@ -36,6 +36,20 @@ function Assessment() {
     //sends to the backend database
   }
 
+  // async function submitUserScores(topics) {
+  //   setTopicScores({ subject_title: topictext, score: sliderValue });
+  //   const post = await fetch(
+  //     `URL`, //Dummy variable - needs actual localhost api address
+  //     {
+  //       method: "POST",
+
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(topics) //Name of the object holding details
+  //     },
+  //   );
+
   return (
     <div>
       <h1> Self-assessment Tool</h1>
