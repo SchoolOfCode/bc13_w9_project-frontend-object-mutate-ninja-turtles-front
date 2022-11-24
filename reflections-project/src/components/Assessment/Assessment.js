@@ -8,7 +8,16 @@ import sampleTopics from "../../libs/data.js";
 import Slider from "./Slider/Slider";
 
 function Assessment() {
-  const [topics, setTopics] = useState([]);
+  const [topics, setTopics] = useState([
+    {
+      text: "HTML",
+      score: 7,
+    },
+    {
+      text: "UX/UI",
+      score: 8,
+    },
+  ]);
   const [sliderValue, setSliderValue] = useState([]);
   // const [dropDownState, setDropDownState] = useState(" "); //preset of dropdown menu
 
@@ -19,7 +28,7 @@ function Assessment() {
   ];
 
   function addTopic(text) {
-    setTopics([...topics, { text, score: 0 }]);
+    setTopics([...topics, { text, score: 10 }]);
     //We need a function to track the change of state of the sliders
   }
 
@@ -32,7 +41,7 @@ function Assessment() {
   }
 
   function submitAll() {
-    //takes in topic object from handleSliderChange
+    //takes in topics object from handleSliderChange
     //sends to the backend database
   }
 
@@ -60,7 +69,7 @@ function Assessment() {
         sliderValue={sliderValue}
         setSliderValue={handleSliderChange}
       ></TopicList>
-      <DropDown options={options} />
+
       <Link to="/summary" className="submitAllContainer">
         <button
           className="submitAllButton"
@@ -76,3 +85,5 @@ function Assessment() {
 }
 
 export default Assessment;
+
+// <DropDown options={options} />
