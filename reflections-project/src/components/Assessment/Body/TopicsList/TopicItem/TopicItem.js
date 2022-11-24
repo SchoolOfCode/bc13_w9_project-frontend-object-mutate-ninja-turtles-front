@@ -1,15 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import Slider from "../../../Slider/Slider";
 import "./TopicItem.css";
 
 function TopicItem({ text, changeSlider, sliderValue, setSliderValue }) {
-  const [sliderNumber, setSliderNumber] = useState(""); //change the text value here to different name and re add text as parameter in line 6
-
   return (
     <div className="slidecontainer">
       <li id="topicNames">
-        {text} {sliderValue}
+        {text}
         <input
           onChange={(e) =>
             console.log(e.target.value) || setSliderValue(e.target.value)
@@ -19,10 +16,10 @@ function TopicItem({ text, changeSlider, sliderValue, setSliderValue }) {
           max="10"
           className="slider"
           id="myRange"
-          // onChange={changeSlider}
         />
         {/* <p id="rangeValue">10</p> */}
         {/* <input type="range" min="1" max="10" onClick={Slider}></input> */}
+        {sliderValue}
       </li>
     </div>
   );

@@ -10,11 +10,7 @@ import Slider from "./Slider/Slider";
 function Assessment() {
   const [topics, setTopics] = useState([]);
   const [sliderValue, setSliderValue] = useState([]);
-  const [weekTracker, setWeekTracker] = useState(sampleTopics);
   // const [dropDownState, setDropDownState] = useState(" "); //preset of dropdown menu
-
-  //useReducer to add a case for every
-  //Array[] push each slider into
 
   const options = [
     { value: "sql", label: "SQL" },
@@ -27,31 +23,17 @@ function Assessment() {
     //We need a function to track the change of state of the sliders
   }
 
-  function addSliderValue() {
-    console.log("slider change");
-    // setSliderValue();
-    setSliderValue([...sliderValue, sliderValue]);
-  }
-
   function handleSliderChange(topictext, sliderValue) {
     console.log({ topictext, sliderValue });
     const newState = [...topics];
     newState.find((t) => t.text === topictext).score = sliderValue;
     setTopics(newState);
+    console.log("endofhandle click", topics);
   }
 
-  function submitAll(event, optionState, slidernumber) {
-    console.log(topics);
-    const newWeekTrackerObj = {
-      week: 2,
-      topic: topics, //Think this should be optionState but I'm confused
-      score: sliderValue, //How do we get this value?
-    };
-    console.log(newWeekTrackerObj);
-
-    const newState = [...weekTracker, newWeekTrackerObj];
-    setWeekTracker(newState);
-    console.log(weekTracker);
+  function submitAll() {
+    //takes in topic object from handleSliderChange
+    //sends to the backend database
   }
 
   return (
@@ -61,7 +43,6 @@ function Assessment() {
       <NewTopic onData={addTopic} />
       <TopicList
         topics={topics}
-        addSliderValue={addSliderValue}
         sliderValue={sliderValue}
         setSliderValue={handleSliderChange}
       ></TopicList>

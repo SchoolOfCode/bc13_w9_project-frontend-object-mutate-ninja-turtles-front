@@ -8,10 +8,9 @@ function TopicList({ topics, changeSlider, sliderValue, setSliderValue }) {
         {topics.map((topic, i) => (
           <TopicItem
             key={i}
-            text={topic.text}
+            text={topic.text} //Doesn't like on submit
             sliderValue={topic.value}
             setSliderValue={(value) => setSliderValue(topic.text, value)}
-            changeSlider={() => changeSlider(i)}
           />
         ))}
       </ul>
