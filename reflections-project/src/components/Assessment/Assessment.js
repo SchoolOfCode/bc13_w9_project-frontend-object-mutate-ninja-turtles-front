@@ -2,25 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import NewTopic from "./Body/NewTopic/NewTopic";
 import TopicList from "./Body/TopicsList/TopicList";
-import DropDown from "./DropDown/DropDown";
 import { Link } from "react-router-dom";
-import sampleTopics from "../../libs/data.js";
-import Slider from "./Slider/Slider";
 
 function Assessment() {
-  const [topics, setTopics] = useState([
-    {
-      text: "HTML",
-      score: 7,
-    },
-    {
-      text: "UX/UI",
-      score: 8,
-    },
-  ]);
+  const [topics, setTopics] = useState([]);
   const [sliderValue, setSliderValue] = useState([]);
-  // const [dropDownState, setDropDownState] = useState(" "); //preset of dropdown menu
-
   const options = [
     { value: "sql", label: "SQL" },
     { value: "postman", label: "Postman" },
@@ -40,24 +26,20 @@ function Assessment() {
     console.log("endofhandle click", topics);
   }
 
-  function submitAll() {
-    //takes in topics object from handleSliderChange
-    //sends to the backend database
-  }
-
-  // async function submitUserScores(topics) {
-  //   setTopicScores({ subject_title: topictext, score: sliderValue });
-  //   const post = await fetch(
-  //     `URL`, //Dummy variable - needs actual localhost api address
-  //     {
-  //       method: "POST",
-
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(topics) //Name of the object holding details
-  //     },
-  //   );
+  async function submitUserScores(topics) {
+    const post = await fetch('http://localhost:3001/api/reviews', 
+    {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({ topic_id: 1, score: topics[0].score, date_added: "2022-11-25", bootcamper_id: 1, }),
+    }
+    );
+    const response = await post.json();
+    if(response) { alert("Info submitted!")}
+    console.log('Data', response);
+  };
 
   return (
     <div>
@@ -74,7 +56,7 @@ function Assessment() {
         <button
           className="submitAllButton"
           onClick={(e) => {
-            submitAll(e);
+            submitUserScores(topics);
           }}
         >
           Submit All
@@ -86,4 +68,3 @@ function Assessment() {
 
 export default Assessment;
 
-// <DropDown options={options} />
