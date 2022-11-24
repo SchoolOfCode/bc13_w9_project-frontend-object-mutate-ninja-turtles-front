@@ -9,17 +9,11 @@ import Slider from "./Slider/Slider";
 
 function Assessment() {
 
-
-  
   const [topics, setTopics] = useState([
     {
       text: "HTML",
       score: 7,
-    },
-    {
-      text: "UX/UI",
-      score: 8,
-    },
+    }
   ]);
   const [sliderValue, setSliderValue] = useState([]);
   // const [dropDownState, setDropDownState] = useState(" "); //preset of dropdown menu
@@ -43,10 +37,10 @@ function Assessment() {
     console.log("endofhandle click", topics);
   }
 
-  function submitAll() {
-    //takes in topics object from handleSliderChange
-    //sends to the backend database
-  }
+  // function submitAll() {
+  //   //takes in topics object from handleSliderChange
+  //   //sends to the backend database
+  // }
 
   // async function submitUserScores(topics) {
   //   setTopicScores({ subject_title: topictext, score: sliderValue });
@@ -63,16 +57,20 @@ function Assessment() {
   //   );
 
 
-  const fetchData = async () => {
-    const responseJSON = await fetch('http://localhost:3001/api/reviews', {
+  const submitUserScores = async () => {
+    setTopics({ topic_id: 1, score: topics.score, date_added: "2022-11-25", bootcamper_id: 1, });
+    const post = await fetch('http://localhost:3001/api/reviews', 
+    {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
-    });
-    let response = await responseJSON.json();
+      body: JSON.stringify(topics),
+    }
+    );
+    const response = await post.json();
+    if(response) { alert("Info submitted!")}
     console.log('Data', response);
-    setData(response.payload);
   };
 
   return (
@@ -90,7 +88,7 @@ function Assessment() {
         <button
           className="submitAllButton"
           onClick={(e) => {
-            submitAll(e);
+            submitUserScores(e);
           }}
         >
           Submit All
