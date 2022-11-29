@@ -8,10 +8,18 @@ function Assessment() {
   const [topics, setTopics] = useState([]);
   const [sliderValue, setSliderValue] = useState([]);
 
+  /** This is a description of the addTopic function.
+   * Spreads the current topics array and adds the new text(topic) inputed by user and presets the slider score to 10, the new topic and score render on the Topic List component.
+   * This function is passed down as a prop to the TopicList component.
+   */
   function addTopic(text) {
     setTopics([...topics, { text, score: 10 }]);
   }
 
+  /** This is a description of the handleSliderChange function.
+   * This function takes in an object and the two properties of the object are topicText and sliderValue.
+   *
+   */
   function handleSliderChange(topictext, sliderValue) {
     console.log({ topictext, sliderValue });
     const newState = [...topics];
@@ -65,5 +73,4 @@ function Assessment() {
     </div>
   );
 }
-
 export default Assessment;
