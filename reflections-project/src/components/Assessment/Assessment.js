@@ -17,8 +17,10 @@ function Assessment() {
   }
 
   /** This is a description of the handleSliderChange function.
-   * This function takes in an object and the two properties of the object are topicText and sliderValue.
-   *
+   * This function takes in two key/value pairs(topicText and sliderValue).
+   * This function is activated when a user moves the slider function to a new value.
+   * It is passed down as a prop to the TopicList and further into the TopicItem component.
+   * The find function identifies the slider being moved through the text(topic) key and assigns the slidervalue key a new value(score).
    */
   function handleSliderChange(topictext, sliderValue) {
     console.log({ topictext, sliderValue });
@@ -28,6 +30,11 @@ function Assessment() {
     console.log("endofhandle click", topics);
   }
 
+  /** This is a description of the submitUserScores function.
+   * Function sends a fetch(POST) request to the API and passes the body.
+   * Submits user scores to the Reviews table.
+   * This functions takes in a topics array of objects. Body reqs score and topic_id from each object.
+   */
   async function submitUserScores(topics) {
     const post = await fetch("http://localhost:3001/api/reviews", {
       method: "POST",
@@ -62,8 +69,7 @@ function Assessment() {
       <Link to="/summary" className="submitAllContainer">
         <button
           className="submitAllButton"
-          onClick={(e) => {
-            //is this e used?
+          onClick={() => {
             submitUserScores(topics);
           }}
         >
