@@ -42,7 +42,7 @@ function Scoreboard() {
     <div>
       {/* Scoreboard */}
       <button onClick={fetchData}>Click Me</button>
-      <p>hi{data.length > 0 && data[0].subject_title}</p>
+      <p>hi{data.length > 0 && JSON.stringify(data)}</p>
     </div>
   );
 }

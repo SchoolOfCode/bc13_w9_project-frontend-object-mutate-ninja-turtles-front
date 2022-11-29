@@ -5,7 +5,21 @@ import TopicList from "./Body/TopicsList/TopicList";
 import { Link } from "react-router-dom";
 
 function Assessment() {
-  const [topics, setTopics] = useState([]);
+  const [topics, setTopics] = useState([
+    {
+      text: 'SQL',
+      score: 4
+    },
+    {
+      text: 'Testing',
+      score: 5
+    },
+    {
+      text: 'UX/UI',
+      score: 7
+    }
+
+  ]);
   const [sliderValue, setSliderValue] = useState([]);
   const options = [
     { value: "sql", label: "SQL" },
@@ -33,7 +47,11 @@ function Assessment() {
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify({ topic_id: 1, score: topics[0].score, date_added: "2022-11-25", bootcamper_id: 1, }),
+      body: JSON.stringify({ 
+      topic_id: 1, 
+      score: topics[0].score, 
+      date_added: "2022-11-25", 
+      bootcamper_id: 1, }),
     }
     );
     const response = await post.json();
