@@ -13,9 +13,38 @@ function Scoreboard() {
     });
     let response = await responseJSON.json();
     //console.log(`Data2 ${JSON.stringify(response)}`);
-    console.log('Data', response);
+    //console.log('Data', response);
     setData(response.payload);
   };
+
+  const parseData = () => {
+    const jsonDataObject = JSON.stringify(data)
+    const javascriptObject = JSON.parse(jsonDataObject)
+    console.log(javascriptObject)
+    return jsonDataObject
+  }
+
+  return (
+    <div>
+      {/* Scoreboard */}
+      <button onClick={fetchData}>Click Me</button>
+      <p>hi{data.length > 0 && parseData()}</p>
+    </div>
+  );
+}
+
+export default Scoreboard;
+
+/*
+<button
+        onClick={() => {
+          displayReviews();
+        }}
+      >
+        Display
+      </button>
+*/
+
 
   // useEffect(() => {
   //   fetchData();
@@ -38,23 +67,3 @@ function Scoreboard() {
   // setHello(pText);
   //console.log(`hello ${hello}, Data ${data}`);
 
-  return (
-    <div>
-      {/* Scoreboard */}
-      <button onClick={fetchData}>Click Me</button>
-      <p>hi{data.length > 0 && data[0].subject_title}</p>
-    </div>
-  );
-}
-
-export default Scoreboard;
-
-/*
-<button
-        onClick={() => {
-          displayReviews();
-        }}
-      >
-        Display
-      </button>
-*/

@@ -5,7 +5,21 @@ import TopicList from "./Body/TopicsList/TopicList";
 import { Link } from "react-router-dom";
 
 function Assessment() {
-  const [topics, setTopics] = useState([]);
+  const [topics, setTopics] = useState([
+    {
+      text: 'SQL',
+      score: 4
+    },
+    {
+      text: 'Testing',
+      score: 5
+    },
+    {
+      text: 'UX/UI',
+      score: 7
+    }
+
+  ]);
   const [sliderValue, setSliderValue] = useState([]);
 
   /** This is a description of the addTopic function.
@@ -48,6 +62,7 @@ function Assessment() {
         bootcamper_id: 1,
       }),
     });
+
     const response = await post.json();
     if (response) {
       alert("Info submitted!");
