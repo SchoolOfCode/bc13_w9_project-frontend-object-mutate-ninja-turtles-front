@@ -39,6 +39,9 @@ User is provided with a summary of current and previous self assessed scores.
 
 ![Entity Relationship Diagram (database tables):]()
 
+<img align="center" alt="Entity Relationship Diagram" width="700px" src="/reflections-project/Screenshot 2022-11-22 at erd.png" style="padding-right:50px;" /> 
+
+
 To run the app locally you need to create a `.env` file and add it to your `.gitignore` file. The `.env` file must contain your PORT number and your DATABASE_URL.
 
  The following commands run the scripts to set up the database:
