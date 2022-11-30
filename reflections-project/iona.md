@@ -16,8 +16,7 @@ User is provided with a summary of current and previous self assessed scores.
 
 ## Demo 
 
-![Demo GIF:](reflectifyDemo.gif
-)
+![Demo GIF:](reflectifyDemo.mov)
 
 
 ## Documentation 
