@@ -33,7 +33,7 @@ function Assessment() {
   /** This is a description of the submitUserScores function.
    * Function sends a fetch(POST) request to the API and passes the body.
    * Submits user scores to the Reviews table.
-   * This functions takes in a topics array of objects. Body reqs score and topic_id from each object.
+   * This function takes in a topics array of objects. Body reqs score and topic_id from each object.
    */
   async function submitUserScores(topics) {
     const post = await fetch("http://localhost:3001/api/reviews", {
