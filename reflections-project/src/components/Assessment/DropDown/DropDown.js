@@ -1,3 +1,5 @@
+//Currently not in use. May be an additional feature that can be added for the next version of the App.
+
 import React, { useEffect, useState } from "react";
 import "./Dropdown.css";
 
@@ -69,3 +71,10 @@ function DropDown({ placeHolder, options }) {
 }
 
 export default DropDown;
+
+//Hardcode for the options on the dropdown
+//  const options = [
+//   { value: "sql", label: "SQL" },
+//   { value: "postman", label: "Postman" },
+//   { value: "react", label: "React" },
+// ];

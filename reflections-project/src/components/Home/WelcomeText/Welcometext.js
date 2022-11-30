@@ -1,20 +1,15 @@
-import React from 'react';
+import React from "react";
 
 function Welcometext() {
   return (
-    <div className='welcometext'>
+    <div className="welcometext">
       <h1>Welcome!</h1>
-      <h5>How to use:</h5>
+      <h4>How to use: It's that time again. Time to Reflect YO Self!</h4>
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
+        Start by entering your topic. If you are a wonderkid, give yourself a
+        10. If you don't have a clue, that's a 1. But don't worry, things will
+        get better. Every week, you'll rerate yourself and you will get better!
+        We'll celebrate it with you.
       </p>
     </div>
   );

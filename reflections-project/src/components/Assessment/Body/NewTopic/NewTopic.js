@@ -1,32 +1,33 @@
 import React, { useState } from "react";
-import DropDown from "../../DropDown/DropDown";
 
-function NewTopic({ onData }) {
-  const [optionState, setOptionState] = useState("");
-  const [text, setText] = useState("");
+function NewTopic({ addTopic }) {
+  const [topicInput, setTopicInput] = useState("");
 
-  function monitorState(e) {
+  /** This is a description of the handleAddButtonClick function.
+   * Resets input field once the user has entered a topic and clicked add which adds that topic to the topic list
+   */
+  function handleAddButtonClick(e) {
     e.preventDefault();
-    onData(optionState);
+    addTopic(topicInput);
     resetInputField();
   }
 
   const handleUserInput = (e) => {
-    setOptionState(e.target.value);
+    setTopicInput(e.target.value);
   };
 
   const resetInputField = () => {
-    setOptionState("");
+    setTopicInput("");
   };
 
   return (
-    <form onSubmit={monitorState}>
+    <form onSubmit={handleAddButtonClick}>
       <div>
         <h3>Start of new topic area</h3>
         <input
           placeholder="Enter your topic..."
           onChange={handleUserInput}
-          value={optionState}
+          value={topicInput}
         />
         <button>Add</button>
       </div>
