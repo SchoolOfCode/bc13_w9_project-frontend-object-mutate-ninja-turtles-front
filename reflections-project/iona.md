@@ -37,10 +37,25 @@ User is provided with a summary of current and previous self assessed scores.
 
 ## Back-end
 
-//ERD## 
-//Testing
+![Entity Relationship Diagram (database tables):]()
 
-//CMNDS to run locally
+To run the app locally you need to create a `.env` file and add it to your `.gitignore` file. The `.env` file must contain your PORT number and your DATABASE_URL.
+
+The following commands run the scripts to set up the database:
+`npm db-create` creates the database tables
+`npm db-drop` drops the tables
+`npm db-seed` adds seed data into the database
+`npm db-reset` will drop, then create, then seed all tables in the database
+
+To start the server run `npm start`.
+
+## Testing
+
+When running in development ...
+Cypress E2E tests are run using `npx cypress open` in the React app.
+For these to run you will also need to have the server running on both the front and back end and the database set up. 
+
+Supertest unit tests are run in the Node app using `npm test`.
 
 ## Authors
 
