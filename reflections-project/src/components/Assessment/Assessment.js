@@ -1,26 +1,32 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NewTopic from "./Body/NewTopic/NewTopic";
 import TopicList from "./Body/TopicsList/TopicList";
 import { Link } from "react-router-dom";
 
 function Assessment() {
+  const [data, setData] = useState(null);
   const [topics, setTopics] = useState([
     {
-      text: 'SQL',
-      score: 4
+      text: "SQL",
+      score: 4,
     },
     {
-      text: 'Testing',
-      score: 5
+      text: "Testing",
+      score: 5,
     },
     {
-      text: 'UX/UI',
-      score: 7
-    }
-
+      text: "UX/UI",
+      score: 7,
+    },
   ]);
   const [sliderValue, setSliderValue] = useState([]);
+
+  // useEffect(() => {
+  //   fetch("/api")
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data.message));
+  // });
 
   /** This is a description of the addTopic function.
    * Spreads the current topics array and adds the new text(topic) inputed by user and presets the slider score to 10, the new topic and score render on the Topic List component.
@@ -91,6 +97,7 @@ function Assessment() {
           Submit All
         </button>
       </Link>
+      <p>{!data ? "Loading..." : data}</p>
     </div>
   );
 }

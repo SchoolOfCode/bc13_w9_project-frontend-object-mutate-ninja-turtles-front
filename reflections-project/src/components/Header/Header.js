@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function Header() {
-  return <div className='header'>Bootcamp Reflections</div>;
+  return <div className="header">Bootcamp Reflections</div>;
 }
 
 export default Header;
