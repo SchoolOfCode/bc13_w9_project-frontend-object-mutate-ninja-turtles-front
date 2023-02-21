@@ -7,7 +7,6 @@ import Home from "../Home/Home.js";
 import Assessment from "../Assessment/Assessment.js";
 import Summary from "../Summary/Summary.js";
 import { useState, useEffect } from "react";
-import { supabase } from "../../supabase";
 
 function App() {
   return (

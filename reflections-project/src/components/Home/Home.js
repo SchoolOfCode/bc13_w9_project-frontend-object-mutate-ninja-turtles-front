@@ -2,7 +2,6 @@ import React from "react";
 import Graphic from "./Graphic/Graphic.js";
 import WelcomeText from "./WelcomeText/Welcometext.js";
 import { Link } from "react-router-dom";
-import { supabase } from "../../supabase";
 
 function Home({ session }) {
   return (
